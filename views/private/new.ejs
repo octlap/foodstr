@@ -20,13 +20,31 @@
   }
 
   div a {
+    width: 80%;
     display: block;
     text-decoration: none;
+    color: #555555;
     background-color: #FFFF66;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: Roboto;
+    padding: 4px 2px;
+    margin-left: 20px;
+    margin-top: 10px;
   }
 
+
+  #infowindow-content {
+    display: none;
+  }
+
+  #details-pic-1, #details-pic-2, #details-pic-3 {
+    height: 250px;
+    margin: 0 5px;
+  }
 
 </style>
 
@@ -46,19 +64,39 @@
 <div id="infowindow-content">
   <img src="" width="16" height="16" id="place-icon">
   <span id="place-name"  class="title"></span><br>
-  <span id="place-address"></span><br><br>
-  <a href="#details">Add place</a>
+  <span id="place-address"></span>
+  <a href="#details" id="add-place"></a>
 </div>
 
 
 <div id="details">
 
-  <p>add details here</p>
+  <h3 id="details-name"></h3>
+  <p id="details-address"></p>
+
+  <br><hr>
+
+  <img id="details-pic-1" src="">
+  <img id="details-pic-2" src="">
+  <img id="details-pic-3" src="">
+
+  <br><hr>
+
   <form action="/new" method="POST">
+
+    <input type="radio" name="status" id="been-there">
+    <label for="been-there">Been there</label><br>
+
+    <input type="radio" name="status" id="to-try">
+    <label for="to-try">To try!</label>
+
+    <br><br>
+
     <button type="submit">Add place</button>
   </form>
 
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/javascripts/main.js"></script>
