@@ -6,3 +6,114 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+/*
+Colors:
+grey: #555555;
+yellow: #FFFF66;
+green: #00FF7F;
+green-hover: #00FA9A;
+*/
+
+/*
+  navbar formatting
+*/
+.navbar{
+  background-color: white;
+  border-width: 0 1px 1px 1px;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.nav>li>a {
+    padding: 5px 10px;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.nav-logo-image{
+  height: 40px;
+  margin: 5px 20px 5px 20px;
+}
+
+.glyphicon{
+  color: #555555;
+}
+
+
+/*
+  landing page - content
+*/
+
+.value-proposition{
+  margin: 70px 20px 20px 20px;
+  font-size: 18px;
+}
+
+.arguments {
+  margin: 20px 20px 20px 20px;
+  font-size: 16px;
+}
+
+.value-proposition, .arguments {
+  background-color: #FFFF66;
+  padding: 40px 60px 40px 60px;
+  text-align: center;
+}
+
+.signup {
+  padding: 40px 60px 40px 60px;
+  text-align: center;
+}
+
+.btn-success {
+  background-color: #00FF7F;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  font-size: 18px;
+}
+
+.btn-success:hover {
+  background-color: #00FA9A;
+}
+
+.headline{
+  padding-top: 10px;
+}
+
+/*
+    Footer
+*/
+
+.footer{
+  margin-top: 20px;
+}
+
+.social:hover {
+     transform: scale(1.1);
+ }
+ .social {
+    color: #555555;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
+ }
+
+ #social-fb:hover {
+     color: #3B5998;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+ }
+ #social-gp:hover {
+     color: #d34836;
+ }
+ #social-em:hover {
+     color: #f39c12;
+ }
