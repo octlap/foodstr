@@ -1,21 +1,38 @@
 <title>Foodstr, find your next meal</title>
 
-<div class="container">
+<% if (user) { %>
 
-    <div class = "row value-proposition">
-      <p class="value-proposition1">You care about what you eat and <br>want to <b>enjoy the best food in town</b>?</p>
-      <p class="value-proposition2">Share your favorite restaurants and discover your friends' best places.</p>
+      <li><a href="/logout">Logout</a></li>
+
+<% } else { %>
+
+    <div class="container-fluid">
+
+        <div class = "row value-proposition">
+          <p class="value-proposition1">You care about what you eat and <br>want to <b>enjoy the best food in town</b>?</p>
+          <p class="value-proposition2">Share your favorite restaurants and discover your friends' best places.</p>
+        </div>
+
+        <div class="row signup">
+        <a href="/signup" class="btn btn-success signup-button align-middle">Join the crew!
+        </a>
+          <p class="headline">Eat better, for your pleasure</p>
+        </div>
+
+          <div class ="row arguments argument1">
+            <div class="col-md-6">
+            <img class ="argument-image" scr="./images/restaurant.jpg" alt="screenshot1"></img>
+            </div>
+            <div class="col-md-6">
+            <p class ="argument-text" >Share your favorite places with your friends</p>
+            </div>
+          </div>
+
+          <div class ="row arguments argument2">
+            <p class ="col-6 argument-text">Discover your friends recommended restaurants</p>
+            <img class ="col-6 argument-image" scr="./images/diner.jpg" alt="screenshot2"></img>
+          </div>
+
     </div>
 
-    <div class="row signup">
-    <a href="/signup" class="btn btn-success signup-button align-middle">Join the crew!
-    </a>
-      <p class="headline">Eat better, for your pleasure</p>
-    </div>
-
-    <div class="row arguments">
-      <p>Save your favorite places with your friends</p>
-      <p>Discover your friends recommended restaurants</p>
-    </div>
-
-</div>
+<% } %>
