@@ -13,7 +13,7 @@ router.post(
   "/signup",
   ensureLoggedOut(),
   passport.authenticate("local-signup", {
-    successRedirect: "/",
+    successRedirect: "/home",
     failureRedirect: "/signup",
     failureFlash: true,
     passReqToCallback: true
@@ -30,7 +30,7 @@ router.post(
   "/login",
   ensureLoggedOut(),
   passport.authenticate("local-login", {
-    successRedirect: "/",
+    successRedirect: "/home",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
@@ -53,7 +53,7 @@ router.get(
 router.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "/",
+    successRedirect: "/home",
     failureRedirect: "/login"
   })
 );

@@ -28,6 +28,7 @@ mongoose.connect("mongodb://localhost/foodstr-development");
 // DEFINE routes
 const index = require("./routes/index");
 const authentication = require("./routes/authentication");
+const privateRoutes = require("./routes/private");
 
 // DEFINE EXPRESS APP
 const app = express();
@@ -190,6 +191,7 @@ app.use((req, res, next) => {
 // USE ROUTES /////////////////////////////////////////////////////////////////
 app.use("/", index);
 app.use("/", authentication);
+app.use("/", privateRoutes);
 
 /// ERROR HANDLING ///////////////////////////////////////////////////////////
 // catch 404 and forward to error handler
