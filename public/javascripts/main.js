@@ -82,11 +82,14 @@ function startMap() {
 $("#details").hide();
 startMap();
 
+// On click a
 $(document).ready(() => {
   $("#add-place").click(e => {
-    // Populate details content
+    // Display name and address
     $("#details-name").html(place.name);
     $("#details-address").html(address);
+
+    // Display first 3 pics -- To Refactor
     $("#details-pic-1").attr(
       "src",
       place.photos[0].getUrl({ maxWidth: 1200, maxHeight: 1200 })
@@ -99,6 +102,11 @@ $(document).ready(() => {
       "src",
       place.photos[2].getUrl({ maxWidth: 1200, maxHeight: 1200 })
     );
+
+    // Populate hidden fields
+    $("#googlePlaceId").val(place.id);
+    $("#address").val(address);
+    $("#name").val(place.name);
 
     // Show
     $("#details").show();
