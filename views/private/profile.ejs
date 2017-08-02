@@ -1,0 +1,12 @@
+<h2><%= user.firstName %>'s profile page</h2>
+
+<button class="btn btn-link btn-logout" type="submit">Log out</button>
+
+
+<p><%= user.firstName %> has <%= user.places.length %> places saved:</p>
+
+<ul>
+<% places.forEach(p => { %>
+  <li><%= p %></li>
+<% }); %>
+</ul>
