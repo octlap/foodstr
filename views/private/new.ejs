@@ -1,111 +1,157 @@
-<style>
+  <style>
 
-   #map {
-    height: 400px;
-    width: 60%;
-   }
+    #main-container {
+      margin-top: 55px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-   #pac-input {
-     background-color: #fff;
-     font-family: Roboto;
-     font-size: 15px;
-     font-weight: 300;
-     padding: 0 11px 0 13px;
-     text-overflow: ellipsis;
-     width: 400px;
-   }
+     #map {
+      height: 400px;
+      width: 60%;
+     }
 
-  #details{
-    height: 1000px;
-  }
+     #pac-input {
+       background-color: #fff;
+       font-family: Roboto;
+       font-size: 18px;
+       font-weight: 300;
+       padding: 0 11px 0 13px;
+       text-overflow: ellipsis;
+       text-align: center;
+       width: 500px;
+       border-top: none;
+       border-left: none;
+       border-right: none;
+       border-bottom: 1px solid gray;
+     }
 
-  div a {
-    width: 80%;
-    display: block;
-    text-decoration: none;
-    color: #555555;
-    background-color: #FFFF66;
-    border: none;
-    border-radius: 2px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 14px;
-    font-family: Roboto;
-    padding: 4px 2px;
-    margin-left: 20px;
-    margin-top: 10px;
-  }
+     #pac-input:focus {
+       border: none;
+     }
+
+    #details{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .add-place-btn {
+      width: 100px;
+      display: block;
+      text-decoration: none;
+      color: black;
+      background-color: transparent;
+      border: solid 1px gray;
+      border-radius: 3px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: Roboto;
+      padding: 4px 2px;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
 
 
-  #infowindow-content {
-    display: none;
-  }
 
-  #details-pic-1, #details-pic-2, #details-pic-3 {
-    height: 200px;
-    margin: 0 5px;
-  }
+    #infowindow-content {
+      display: none;
+    }
 
-</style>
+    #photo-block  {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      align-items: center;
+    }
 
-<title>New place</title>
+    #details-pic-1, #details-pic-2, #details-pic-3 {
+      display: block;
+      height: 200px;
+      margin: 0 5px;
+    }
+
+    hr {
+      width: 80%;
+    }
+
+  </style>
+
+<title><%= title %></title>
+
+<div id="main-container">
 
 
-<% if (typeof message != "undefined") { %>
-  <h2><%= message %>!</h2>
-<% } %>
+  <% if (typeof message != "undefined") { %>
+    <h2><%= message %></h2>
+  <% } %>
+  <br><br>
 
-<div id="pac-container">
-  <input id="pac-input" type="text"
-      placeholder="Enter a location">
+  <div id="pac-container">
+    <input id="pac-input" type="text"
+        placeholder="Type a location here">
+  </div>
+
+  <br><br>
+
+  <!-- Map and infowindow -->
+  <div id="map"></div>
+  <div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon">
+    <span id="place-name"  class="title"></span><br>
+    <span id="place-address"></span>
+    <a href="#details" id="add-place-btn" class="add-place-btn"></a>
+  </div>
+  <!-- Map and infowindow -->
+
+
+
+  <!-- Details section -->
+  <div id="details">
+
+    <hr>
+
+    <h3 id="details-name"></h3>
+    <p id="details-address"></p>
+
+    <br>
+
+    <div id="photo-block">
+      <img id="details-pic-1" src="">
+      <img id="details-pic-2" src="">
+      <img id="details-pic-3" src="">
+    </div>
+    <br>
+
+    <form id="details-form" action="/new" method="POST">
+
+      <input type="radio" name="status" id="beenThere" value="true">
+      <label for="beenThere">Been there</label><br>
+
+      <input type="radio" name="status" id="toTry" value="false">
+      <label for="toTry">To try!</label>
+
+      <!-- hidden fields -->
+      <input type="hidden" name="name" id="name">
+      <input type="hidden" name="address" id="address">
+      <input type="hidden" name="googlePlaceId" id="googlePlaceId">
+      <input type="hidden" name="photo" id="photo">
+      <!-- hidden fields -->
+
+      <br><br>
+
+      <button type="submit" class="add-place-btn">Add place</button>
+    </form>
+
+  </div>
+  <!-- Details section -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+
 </div>
-
-<br><br>
-
-<!-- Map and infowindow -->
-<div id="map"></div>
-<div id="infowindow-content">
-  <img src="" width="16" height="16" id="place-icon">
-  <span id="place-name"  class="title"></span><br>
-  <span id="place-address"></span>
-  <a href="#details" id="add-place"></a>
-</div>
-
-
-<div id="details">
-
-  <h3 id="details-name"></h3>
-  <p id="details-address"></p>
-
-  <br>
-
-  <img id="details-pic-1" src="">
-  <img id="details-pic-2" src="">
-
-
-  <br>
-
-  <form id="details-form" action="/new" method="POST">
-
-    <input type="radio" name="beenThere" id="beenThere">
-    <label for="been-there">Been there</label><br>
-
-    <input type="radio" name="toTry" id="toTry">
-    <label for="to-try">To try!</label>
-
-    <!-- hidden fields -->
-    <input type="hidden" name="name" id="name">
-    <input type="hidden" name="address" id="address">
-    <input type="hidden" name="googlePlaceId" id="googlePlaceId">
-    <!-- hidden fields -->
-
-    <br><br>
-
-    <button type="submit">Add place</button>
-  </form>
-
-</div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/javascripts/main.js"></script>

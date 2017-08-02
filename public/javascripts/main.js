@@ -72,7 +72,7 @@ function startMap() {
     infowindowContent.children["place-icon"].src = place.icon;
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = address;
-    infowindowContent.children["add-place"].textContent = "Add place";
+    infowindowContent.children["add-place-btn"].textContent = "Add place";
     $(infowindowContent).show();
     infowindow.open(map, marker);
   });
@@ -80,24 +80,31 @@ function startMap() {
 
 //At first hide details
 $("#details").hide();
+$(".details-pic").hide();
 startMap();
 
 // On click a
 $(document).ready(() => {
-  $("#add-place").click(e => {
+  $("#add-place-btn").click(e => {
     // Display name and address
     $("#details-name").html(place.name);
     $("#details-address").html(address);
 
-    // Display first 3 pics -- To Refactor
-    $("#details-pic-1").attr(
-      "src",
-      place.photos[0].getUrl({ maxWidth: 1200, maxHeight: 1200 })
-    );
-    $("#details-pic-2").attr(
-      "src",
-      place.photos[1].getUrl({ maxWidth: 1200, maxHeight: 1200 })
-    );
+    // Display pictures
+    if (place.photos) {
+      // add first photo url to hidden field
+      $("#photo").val(
+        place.photos[0].getUrl({ maxWidth: 1200, maxHeight: 1200 })
+      );
+      const numPics = Math.min(3, place.photos.length);
+      for (let i = 0; i < numPics; i++) {
+        $("#details-pic-" + (i + 1)).attr(
+          "src",
+          place.photos[i].getUrl({ maxWidth: 1200, maxHeight: 1200 })
+        );
+        $("#details-pic-" + (i + 1)).show();
+      }
+    }
 
     // Populate hidden fields
     $("#googlePlaceId").val(place.id);

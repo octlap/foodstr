@@ -1,12 +1,77 @@
-<h2><%= user.firstName %>'s profile page</h2>
+<style>
 
-<button class="btn btn-link btn-logout" type="submit">Log out</button>
+.main-container {
+  margin-top: 55px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profile-block {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#places-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-places {
+  display: flex;
+  justify-content: space-between;
+  height: 180px;
+  width: 40%;
+  align-items: center;
+}
+
+.place-photo{
+  display: block;
+  height: 90%
+}
+
+.info-block{
+  width: 60%;
+  text-align: right;
+}
+
+hr {
+  width: 50%
+}
+
+</style>
 
 
-<p><%= user.firstName %> has <%= user.places.length %> places saved:</p>
+<title><%= title %></title>
 
-<ul>
-<% places.forEach(p => { %>
-  <li><%= p %></li>
-<% }); %>
-</ul>
+<div class="main-container">
+
+  <div id="profile-block">
+    <h2 id="user-name"><%= user.firstName %> <%= user.lastName %></h2>
+    <button class="btn btn-link btn-logout" type="submit">Log out</button>
+  </div>
+
+  <hr>
+  <div id="places-list">
+    <% for (let i = places.length -1 ; i >= 0; i--) { %>
+      <div class="row-places">
+
+        <img class="place-photo" src="<%= places[i].photo %>">
+
+        <div class="info-block">
+          <h2><%= places[i].name %></h2>
+          <p><%= places[i].address %></p>
+        </div>
+
+      </div>
+      <hr>
+
+    <% } %>
+  </div>
+</div>
