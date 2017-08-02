@@ -7,8 +7,13 @@ const userSchema = new Schema({
   firstName: String,
   lastName: String,
   facebookID: String,
-  city: String // maybe Google place ID
-  // places = []
+  city: String, // maybe Google place ID
+  places: [
+    {
+      _placeId: { type: Schema.Types.ObjectId, ref: "Place" },
+      status: Boolean
+    }
+  ]
 });
 
 const User = mongoose.model("User", userSchema);

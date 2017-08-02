@@ -51,9 +51,9 @@
 <title>New place</title>
 
 
-<body>
-
-<h1>Tell me about this place, <%= user.firstName %>!</h1>
+<% if (typeof message != "undefined") { %>
+  <h2><%= message %>!</h2>
+<% } %>
 
 <div id="pac-container">
   <input id="pac-input" type="text"
@@ -81,16 +81,16 @@
 
   <img id="details-pic-1" src="">
   <img id="details-pic-2" src="">
-  <img id="details-pic-3" src="">
+
 
   <br>
 
   <form id="details-form" action="/new" method="POST">
 
-    <input type="radio" name="been-there" id="been-there">
+    <input type="radio" name="beenThere" id="beenThere">
     <label for="been-there">Been there</label><br>
 
-    <input type="radio" name="to-try" id="to-try">
+    <input type="radio" name="toTry" id="toTry">
     <label for="to-try">To try!</label>
 
     <!-- hidden fields -->

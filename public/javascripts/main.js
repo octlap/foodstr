@@ -98,10 +98,6 @@ $(document).ready(() => {
       "src",
       place.photos[1].getUrl({ maxWidth: 1200, maxHeight: 1200 })
     );
-    $("#details-pic-3").attr(
-      "src",
-      place.photos[2].getUrl({ maxWidth: 1200, maxHeight: 1200 })
-    );
 
     // Populate hidden fields
     $("#googlePlaceId").val(place.id);
