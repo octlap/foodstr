@@ -6,13 +6,15 @@ const User = require("../models/user");
 
 // HOME PAGE //////////////////////////////////////////////////////////////////
 router.get("/home", ensureLoggedIn("/login"), (req, res, next) => {
-  res.render("private/home");
+  res.render("private/home", {
+    title: "Foosdstr"
+  });
 });
 
 // NEW PLACE PAGE /////////////////////////////////////////////////////////////
 router.get("/new", ensureLoggedIn("/login"), (req, res, next) => {
   res.render("private/new", {
-    message: "Tell me about this new place " + req.user.firstName + "!"
+    title: "Add a new place"
   });
 });
 
@@ -20,7 +22,8 @@ router.post("/new", ensureLoggedIn("/login"), (req, res, next) => {
   const newPlace = {
     name: req.body.name,
     address: req.body.address,
-    googlePlaceId: req.body.googlePlaceId
+    googlePlaceId: req.body.googlePlaceId,
+    photo: req.body.photo
   };
 
   // First add place in Place collection if it doesn't already exist
@@ -33,7 +36,7 @@ router.post("/new", ensureLoggedIn("/login"), (req, res, next) => {
       // Create new place object
       const userPlace = {
         _placeId: place._id,
-        status: req.body.beenThere == "on" ? true : false
+        status: req.body.status
       };
 
       // Only add to user's places vector if not already added
@@ -71,10 +74,16 @@ router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
   for (let i = 0; i < req.user.places.length; i++) {
     console.log(req.user.places[i]._placeId);
     const place = await Place.findOne({ _id: req.user.places[i]._placeId });
-    places.push(place.name);
+    places.push({
+      name: place.name,
+      address: place.address,
+      googlePlaceId: place.googlePlaceId,
+      photo: place.photo
+    });
   }
 
   res.render("private/profile", {
+    title: "Foodstr - " + req.user.firstName + "'s profile",
     user: req.user,
     places
   });

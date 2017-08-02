@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const placeSchema = new Schema({
   name: String,
   address: String,
-  googlePlaceId: String
+  googlePlaceId: String,
+  photo: String //url to cover photo
 });
 
 const Place = mongoose.model("Place", placeSchema);
