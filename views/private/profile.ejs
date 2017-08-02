@@ -54,7 +54,6 @@ hr {
 
   <div id="profile-block">
     <h2 id="user-name"><%= user.firstName %> <%= user.lastName %></h2>
-    <button class="btn btn-link btn-logout" type="submit">Log out</button>
   </div>
 
   <hr>
@@ -72,6 +71,11 @@ hr {
       </div>
       <hr>
 
+
+
     <% } %>
   </div>
+
+  <button href="/logout" class="btn btn-link btn-logout" type="submit">Log out</button>
+
 </div>
