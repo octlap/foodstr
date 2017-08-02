@@ -53,7 +53,7 @@ green-hover: #00FA9A;
 
 .arguments {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   height: 350px;
 }
 
@@ -123,7 +123,119 @@ green-hover: #00FA9A;
   padding-top: 10px;
 }
 
+/*
+  signup up page
+*/
 
+.signup{
+  margin-top: 40px;
+}
+
+.signup .image{
+  background-image: url(/images/table.jpg);
+  background-repeat: no-repeat;
+  height: 600px;
+}
+
+.signup .block{
+  padding-right: 70px;
+  padding-left: 70px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 767px){
+  .signup .block{
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top: 30px;
+  }
+}
+
+.btn-facebook {
+    background: #3B5998;
+	  color: #fff;
+    text-align: center;
+}
+.button-facebook {
+    background: #3B5998;
+	  color: #fff;
+    padding: 15px 16px 13px;
+    text-align: center;
+    margin: 40px auto;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 20px 0 30px 0;
+    display: inline-block;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+}
+
+.or-separator{
+  display:flex;
+}
+
+.or-line{
+  position: relative;
+  flex-grow: 1;
+  background-color: #999999;
+  height: 1px;
+  top: .45em;
+}
+
+.or-text{
+  position: relative;
+  color: #999999;
+  line-height: 15px;
+  margin: 0 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-bottom: 30px;
+}
+
+.form-group{
+  text-align: left;
+}
+
+.button-facebook:hover {
+  color: grey;
+  color: white;
+  text-decoration: none;
+}
+
+.btn{
+  text-transform: none;
+}
+
+.form-input{
+  border: 0;
+  border-bottom: 1px solid #00FF7F;
+  border-radius: 0;
+  font-size: 18px;
+  padding-bottom: 16px;
+  outline: 0;
+  width: 100%;
+  transition: border-color .3s;
+  user-select: text;
+  cursor: auto;
+  padding: 1px;
+  display: inline-block;
+  text-align: start;
+}
+
+.email label{
+  align: left;
+  color: #999999;
+}
+
+label{
+  color: #999999;
+}
+
+.email-signup .btn-success{
+  margin-top: 20px;
+}
 
 /*
     Footer
