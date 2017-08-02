@@ -11,6 +11,7 @@ grey: #555555;
 yellow: #FFFF66;
 green: #00FF7F;
 green-hover: #00FA9A;
+green-other: #91DC5A;
 */
 
 /*
@@ -135,7 +136,7 @@ green-hover: #00FA9A;
 */
 
 .main-container{
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .main-container .image{
