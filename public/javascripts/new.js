@@ -83,7 +83,7 @@ $("#details").hide();
 $(".details-pic").hide();
 startMap();
 
-// On click a
+// On click move to bottom section and show details
 $(document).ready(() => {
   $("#add-place-btn").click(e => {
     // Display name and address
