@@ -19,10 +19,16 @@ router.get("/new", ensureLoggedIn("/login"), (req, res, next) => {
 });
 
 router.post("/new", ensureLoggedIn("/login"), (req, res, next) => {
+  let location = {
+    type: "Point",
+    coordinates: [req.body.lng, req.body.lat]
+  };
+
   const newPlace = {
     name: req.body.name,
     address: req.body.address,
     googlePlaceId: req.body.googlePlaceId,
+    location,
     photo: req.body.photo
   };
 
@@ -78,6 +84,7 @@ router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
       name: place.name,
       address: place.address,
       googlePlaceId: place.googlePlaceId,
+      location: place.location,
       photo: place.photo
     });
   }

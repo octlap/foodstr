@@ -110,6 +110,8 @@ $(document).ready(() => {
     $("#googlePlaceId").val(place.id);
     $("#address").val(address);
     $("#name").val(place.name);
+    $("#lat").val(place.geometry.location.lat());
+    $("#lng").val(place.geometry.location.lng());
 
     // Show
     $("#details").show();

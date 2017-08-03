@@ -5,8 +5,11 @@ const placeSchema = new Schema({
   name: String,
   address: String,
   googlePlaceId: String,
+  location: { type: { type: String }, coordinates: [Number] },
   photo: String //url to cover photo
 });
+
+placeSchema.index({ location: "2dsphere" });
 
 const Place = mongoose.model("Place", placeSchema);
 
