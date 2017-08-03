@@ -53,11 +53,7 @@ blue: #00bfff;
 .value-proposition {
   margin: 40px 0 10px 0;
   font-size: 18px;
-<<<<<<< HEAD
-  background-color: #ffff66;
-=======
   background-color: rgba(253, 117, 85, 0.5);
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
   padding: 60px 60px 50px 60px;
   text-align: center;
   line-height: 150%;
@@ -69,25 +65,15 @@ blue: #00bfff;
   height: 350px;
 }
 
-<<<<<<< HEAD
 .argument1 {
-  background-color: #ffff66;
-=======
-.argument1{
   background-color: rgba(253, 117, 85, 0.5);
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
 }
 .argument1 .image {
   background-image: url(/images/restaurant.jpg);
 }
 
-<<<<<<< HEAD
 .argument2 {
-  background-color: #00ff7f;
-=======
-.argument2{
   background-color: #00bfff;
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
   color: white;
 }
 
@@ -132,11 +118,7 @@ blue: #00bfff;
 }
 
 .btn-success {
-<<<<<<< HEAD
-  background-color: #00ff7f;
-=======
   background-color: #00bfff;
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
   border: none;
   padding: 10px 20px 10px 20px;
   font-size: 18px;
@@ -144,11 +126,7 @@ blue: #00bfff;
 }
 
 .btn-success:hover {
-<<<<<<< HEAD
-  background-color: #00fa9a;
-=======
   background-color: #24baec;
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
 }
 
 .headline {
@@ -241,11 +219,7 @@ blue: #00bfff;
 
 .form-input {
   border: 0;
-<<<<<<< HEAD
-  border-bottom: 1px solid #00ff7f;
-=======
   border-bottom: 1px solid #00bfff;
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
   border-radius: 0;
   font-size: 18px;
   padding-bottom: 16px;
@@ -275,6 +249,15 @@ label {
 .email-login .btn-success {
   margin-top: 40px;
 }
+
+/*
+    Homepage
+*/
+
+
+
+
+
 
 /*
     Footer
