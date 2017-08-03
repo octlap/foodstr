@@ -85,7 +85,8 @@ router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
       address: place.address,
       googlePlaceId: place.googlePlaceId,
       location: place.location,
-      photo: place.photo
+      photo: place.photo,
+      status: req.user.places[i].status
     });
   }
 

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <style>
 
 .main-container {
@@ -9,8 +10,8 @@
 }
 
 #map {
-  width: 50%;
-  height: 400px;
+  width: 70%;
+  height: 450px;
   margin: 3px 0;
 }
 
@@ -33,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   height: 150px;
-  width: 40%;
+  width: 50%;
   align-items: center;
 }
 
@@ -45,10 +46,72 @@
 .info-block{
   width: 60%;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.wish-list-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls {
+  height: 22px;
+  border-radius: 3px;
+  border: none;
+  background-color: #f2f2f2;
+  color: black;
+  text-align: center;
+  padding: 3px;
+  margin-left: 5px;
+  width: 22px;
+}
+
+.controls:focus {
+  outline:0;
+}
+
+
+.wish-list {
+  background-color: #00bfff;
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  width: 65px;
+  height: 22px;
+  text-align: center;
+}
+
+.wish-list.map {
+  padding: 3px;
+}
+
+.wish-list.list {
+  margin-left: 10px;
+}
+
+.favorite {
+  background-color: #fd7555;
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  width: 55px;
+  height: 22px;
+  text-align: center;
+}
+
+.favorite.map {
+  padding: 3px;
+}
+
+.favorite.list {
+  margin-left: 10px;
 }
 
 hr {
-  width: 50%;
+  width: 70%;
   margin: 15px 0;
 }
 
@@ -56,14 +119,8 @@ hr {
   display: none;
 }
 
-#logout-btn {
-  background: #e6e6e6;
-  border: none;
-  color: black;
-  text-decoration: none;
-  border-radius: 3px;
-  margin-bottom: 5px;
-}
+#
+
 
 </style>
 
@@ -74,10 +131,7 @@ hr {
 
   <div id="profile-block">
     <h2 id="user-name"><%= user.firstName %> <%= user.lastName %></h2>
-    <p>Short bio here</p>
-    <form action="/logout" method="POST">
-      <button id="logout-btn" type="submit">Log out</button>
-    </form>
+    <!-- <p>Short bio here</p> -->
   </div>
 
   <hr>
@@ -91,6 +145,19 @@ hr {
         <img class="place-photo" src="<%= places[i].photo %>">
 
         <div class="info-block">
+
+          <%if (!places[i].status) { %>
+            <div class="wish-list-controls">
+              <button class="controls"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+              <button class="controls"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              <div class="wish-list list">Wish list</div>
+            </div>
+          <% } else { %>
+            <div class="wish-list-controls">
+              <button class="controls"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              <div class="favorite list">Fave</div>
+            </div>
+          <% } %>
           <h2><%= places[i].name %></h2>
           <p><%= places[i].address %></p>
           <span class="id"><%= places[i].googlePlaceId %></span>
@@ -99,14 +166,10 @@ hr {
       </div>
 
 
-
     <% } %>
   </div>
 
-  <button href="/logout" class="btn btn-link btn-logout" type="submit">Log out</button>
-
 </div>
-
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
 <script>

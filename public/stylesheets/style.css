@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
 html {
   font-family: Roboto;
   font-weight: 300;
@@ -17,43 +16,43 @@ green-other: #91DC5A;
 /*
   navbar formatting
 */
-.navbar{
+.navbar {
   background-color: white;
   border-width: 0 1px 1px 1px;
 }
 
-.navbar-nav>li, .navbar-nav {
+.navbar-nav > li,
+.navbar-nav {
   float: left !important;
   margin-right: 10px;
   margin-top: 6px;
 }
 
-.nav>li>a {
-    padding: 5px 10px;
+.nav > li > a {
+  padding: 5px 10px;
 }
 
 .navbar-right {
-  float: right!important;
+  float: right !important;
 }
 
-.nav-logo-image{
+.nav-logo-image {
   height: 40px;
   margin: 5px 20px 5px 20px;
 }
 
-.glyphicon{
+.glyphicon {
   color: #555555;
 }
-
 
 /*
   landing page - content
 */
 
-.value-proposition{
+.value-proposition {
   margin: 40px 0 10px 0;
   font-size: 18px;
-  background-color: #FFFF66;
+  background-color: #ffff66;
   padding: 60px 60px 50px 60px;
   text-align: center;
   line-height: 150%;
@@ -65,15 +64,15 @@ green-other: #91DC5A;
   height: 350px;
 }
 
-.argument1{
-  background-color: #FFFF66;
+.argument1 {
+  background-color: #ffff66;
 }
-.argument1 .image{
+.argument1 .image {
   background-image: url(/images/restaurant.jpg);
 }
 
-.argument2{
-  background-color: #00FF7F;
+.argument2 {
+  background-color: #00ff7f;
   color: white;
 }
 
@@ -81,16 +80,17 @@ green-other: #91DC5A;
   background-image: url(/images/diner.jpg);
 }
 
-.image{
+.image {
   background-size: cover;
-  height:100%;
+  height: 100%;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .image {
     height: 46%;
   }
-  .col-sm-6.pull-right, .col-sm-6.pull-left {
+  .col-sm-6.pull-right,
+  .col-sm-6.pull-left {
     width: 100%;
   }
   .arguments {
@@ -98,16 +98,16 @@ green-other: #91DC5A;
   }
 }
 
-.col-sm-6{
+.col-sm-6 {
   padding: 0;
 }
 
-.text{
+.text {
   margin-top: 110px;
   line-height: 180%;
 }
 
-.h3{
+.h3 {
   font-size: 16px;
 }
 
@@ -117,17 +117,17 @@ green-other: #91DC5A;
 }
 
 .btn-success {
-  background-color: #00FF7F;
+  background-color: #00ff7f;
   border: none;
   padding: 10px 20px 10px 20px;
   font-size: 18px;
 }
 
 .btn-success:hover {
-  background-color: #00FA9A;
+  background-color: #00fa9a;
 }
 
-.headline{
+.headline {
   padding-top: 10px;
 }
 
@@ -135,24 +135,24 @@ green-other: #91DC5A;
   signup up page
 */
 
-.main-container{
+.main-container {
   margin-top: 50px;
 }
 
-.main-container .image{
+.main-container .image {
   background-image: url(/images/table.jpg);
   background-repeat: no-repeat;
   height: 600px;
 }
 
-.main-container .block{
+.main-container .block {
   padding-right: 70px;
   padding-left: 70px;
   margin-top: 30px;
 }
 
-@media screen and (max-width: 767px){
-  .main-container .block{
+@media screen and (max-width: 767px) {
+  .main-container .block {
     padding-right: 30px;
     padding-left: 30px;
     margin-top: 30px;
@@ -160,30 +160,30 @@ green-other: #91DC5A;
 }
 
 .btn-facebook {
-    background: #3B5998;
-	  color: #fff;
-    text-align: center;
+  background: #3b5998;
+  color: #fff;
+  text-align: center;
 }
 .button-facebook {
-    background: #3B5998;
-	  color: #fff;
-    padding: 15px 16px 13px;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 10px;
-    margin: 30px 0 50px 0;
-    display: inline-block;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    user-select: none;
+  background: #3b5998;
+  color: #fff;
+  padding: 15px 16px 13px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 30px 0 50px 0;
+  display: inline-block;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
 }
 
-.or-separator{
-  display:flex;
+.or-separator {
+  display: flex;
 }
 
-.or-line{
+.or-line {
   position: relative;
   flex-grow: 1;
   background-color: #999999;
@@ -191,7 +191,7 @@ green-other: #91DC5A;
   top: .45em;
 }
 
-.or-text{
+.or-text {
   position: relative;
   color: #999999;
   line-height: 15px;
@@ -201,7 +201,7 @@ green-other: #91DC5A;
   margin-bottom: 30px;
 }
 
-.form-group{
+.form-group {
   text-align: left;
 }
 
@@ -211,13 +211,13 @@ green-other: #91DC5A;
   text-decoration: none;
 }
 
-.btn{
+.btn {
   text-transform: none;
 }
 
-.form-input{
+.form-input {
   border: 0;
-  border-bottom: 1px solid #00FF7F;
+  border-bottom: 1px solid #00ff7f;
   border-radius: 0;
   font-size: 18px;
   padding-bottom: 16px;
@@ -231,20 +231,20 @@ green-other: #91DC5A;
   text-align: start;
 }
 
-.email label{
+.email label {
   align: left;
   color: #999999;
 }
 
-label{
+label {
   color: #999999;
 }
 
-.email-signup .btn-success{
+.email-signup .btn-success {
   margin-top: 30px;
 }
 
-.email-login .btn-success{
+.email-login .btn-success {
   margin-top: 40px;
 }
 
@@ -252,28 +252,37 @@ label{
     Footer
 */
 
-.footer{
+.footer {
   margin-top: 20px;
 }
 
 .social:hover {
-     transform: scale(1.1);
- }
- .social {
-    color: #555555;
-    transform: scale(0.8);
-    transition-duration: 0.5s;
- }
+  transform: scale(1.1);
+}
+.social {
+  color: #555555;
+  transform: scale(0.8);
+  transition-duration: 0.5s;
+}
 
- #social-fb:hover {
-     color: #3B5998;
- }
- #social-tw:hover {
-     color: #4099FF;
- }
- #social-gp:hover {
-     color: #d34836;
- }
- #social-em:hover {
-     color: #f39c12;
- }
+#social-fb:hover {
+  color: #3b5998;
+}
+#social-tw:hover {
+  color: #4099ff;
+}
+#social-gp:hover {
+  color: #d34836;
+}
+#social-em:hover {
+  color: #f39c12;
+}
+
+#logout-btn {
+  background: #e6e6e6;
+  border: none;
+  color: black;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
