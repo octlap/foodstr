@@ -8,10 +8,11 @@ html {
 /*
 Colors:
 grey: #555555;
-yellow: #FFFF66;
-green: #00FF7F;
-green-hover: #00FA9A;
-green-other: #91DC5A;
+green: #00ff7f;
+green-new: #00E673;
+pink: #fd7555;
+red: #ef431d;
+blue: #00bfff;
 */
 
 /*
@@ -53,7 +54,7 @@ green-other: #91DC5A;
 .value-proposition{
   margin: 40px 0 10px 0;
   font-size: 18px;
-  background-color: #FFFF66;
+  background-color: rgba(253, 117, 85, 0.5);
   padding: 60px 60px 50px 60px;
   text-align: center;
   line-height: 150%;
@@ -66,14 +67,14 @@ green-other: #91DC5A;
 }
 
 .argument1{
-  background-color: #FFFF66;
+  background-color: rgba(253, 117, 85, 0.5);
 }
 .argument1 .image{
   background-image: url(/images/restaurant.jpg);
 }
 
 .argument2{
-  background-color: #00FF7F;
+  background-color: #00bfff;
   color: white;
 }
 
@@ -117,14 +118,15 @@ green-other: #91DC5A;
 }
 
 .btn-success {
-  background-color: #00FF7F;
+  background-color: #00bfff;
   border: none;
   padding: 10px 20px 10px 20px;
   font-size: 18px;
+  border-radius: 10px;
 }
 
 .btn-success:hover {
-  background-color: #00FA9A;
+  background-color: #24baec;
 }
 
 .headline{
@@ -217,7 +219,7 @@ green-other: #91DC5A;
 
 .form-input{
   border: 0;
-  border-bottom: 1px solid #00FF7F;
+  border-bottom: 1px solid #00bfff;
   border-radius: 0;
   font-size: 18px;
   padding-bottom: 16px;
