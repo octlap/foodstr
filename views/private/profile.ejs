@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+#map {
+  width: 50%;
+  height: 400px;
+  margin: 3px 0;
+}
+
 #profile-block {
   width: 60%;
   display: flex;
@@ -26,7 +32,7 @@
 .row-places {
   display: flex;
   justify-content: space-between;
-  height: 180px;
+  height: 150px;
   width: 40%;
   align-items: center;
 }
@@ -42,7 +48,21 @@
 }
 
 hr {
-  width: 50%
+  width: 50%;
+  margin: 15px 0;
+}
+
+.id {
+  display: none;
+}
+
+#logout-btn {
+  background: #e6e6e6;
+  border: none;
+  color: black;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 </style>
@@ -54,24 +74,37 @@ hr {
 
   <div id="profile-block">
     <h2 id="user-name"><%= user.firstName %> <%= user.lastName %></h2>
-    <button class="btn btn-link btn-logout" type="submit">Log out</button>
+    <p>Short bio here</p>
+    <form action="/logout" method="POST">
+      <button id="logout-btn" type="submit">Log out</button>
+    </form>
   </div>
 
   <hr>
+  <div id="map"></div>
+
+
   <div id="places-list">
     <% for (let i = places.length -1 ; i >= 0; i--) { %>
+      <hr>
       <div class="row-places">
-
         <img class="place-photo" src="<%= places[i].photo %>">
 
         <div class="info-block">
           <h2><%= places[i].name %></h2>
           <p><%= places[i].address %></p>
+          <span class="id"><%= places[i].googlePlaceId %></span>
         </div>
 
       </div>
-      <hr>
 
     <% } %>
   </div>
 </div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
+<script>
+  window.places = <%- JSON.stringify(places) -%>
+</script>
+<script type="text/javascript" src="/javascripts/profile.js"></script>
