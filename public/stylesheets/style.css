@@ -241,11 +241,7 @@ blue: #00bfff;
 
 .form-input {
   border: 0;
-<<<<<<< HEAD
-  border-bottom: 1px solid #00ff7f;
-=======
   border-bottom: 1px solid #00bfff;
->>>>>>> f8d84f1a2f7ac51f5d96922c690218c895a93356
   border-radius: 0;
   font-size: 18px;
   padding-bottom: 16px;

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <style>
 
 .main-container {
@@ -52,7 +51,7 @@
   justify-content: space-between;
 }
 
-.wish-list-controls {
+.info-row {
   display: flex;
   justify-content: space-between;
 }
@@ -138,40 +137,12 @@ hr {
   <div id="map"></div>
 
 
-  <div id="places-list">
-    <% for (let i = places.length -1 ; i >= 0; i--) { %>
-      <hr>
-      <div class="row-places">
-        <img class="place-photo" src="<%= places[i].photo %>">
-
-        <div class="info-block">
-
-          <%if (!places[i].status) { %>
-            <div class="wish-list-controls">
-              <button class="controls"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-              <button class="controls"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-              <div class="wish-list list">Wish list</div>
-            </div>
-          <% } else { %>
-            <div class="wish-list-controls">
-              <button class="controls"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-              <div class="favorite list">Fave</div>
-            </div>
-          <% } %>
-          <h2><%= places[i].name %></h2>
-          <p><%= places[i].address %></p>
-          <span class="id"><%= places[i].googlePlaceId %></span>
-        </div>
-
-      </div>
-
-
-    <% } %>
-  </div>
+  <div id="places-list"></div>
 
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDPUH7jr-6r-tgbqKjsJJ6zB-ZmG2tyAs&libraries=places"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
   window.places = <%- JSON.stringify(places) -%>
 </script>

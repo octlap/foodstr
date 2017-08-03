@@ -74,6 +74,8 @@ router.post("/new", ensureLoggedIn("/login"), (req, res, next) => {
 });
 
 // PROFILE PAGE ///////////////////////////////////////////////////////////////
+
+// GET - PAGE
 router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
   const places = [];
 
@@ -83,7 +85,7 @@ router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
     places.push({
       name: place.name,
       address: place.address,
-      googlePlaceId: place.googlePlaceId,
+      id: place._id,
       location: place.location,
       photo: place.photo,
       status: req.user.places[i].status
@@ -95,6 +97,39 @@ router.get("/profile", ensureLoggedIn("/login"), async (req, res, next) => {
     user: req.user,
     places
   });
+});
+
+// POST - DELETE FROM LIST
+router.post("/delete", ensureLoggedIn(), (req, res, next) => {
+  User.findOneAndUpdate(
+    {
+      _id: req.user._id
+    },
+    { $pull: { places: { _placeId: req.body.id } } }
+  )
+    .then(result => {
+      res.json({ deleted: true });
+    })
+    .catch(error => {
+      throw error;
+    });
+});
+
+// POST - MAKE A FAVE
+router.post("/fave", ensureLoggedIn(), (req, res, next) => {
+  User.findOneAndUpdate(
+    {
+      _id: req.user._id,
+      "places._placeId": req.body.id
+    },
+    { $set: { status: true } }
+  )
+    .then(result => {
+      res.json({ deleted: true });
+    })
+    .catch(error => {
+      throw error;
+    });
 });
 
 module.exports = router;
