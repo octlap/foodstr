@@ -122,7 +122,7 @@ router.post("/fave", ensureLoggedIn(), (req, res, next) => {
       _id: req.user._id,
       "places._placeId": req.body.id
     },
-    { $set: { status: true } }
+    { $set: { "places.$.status": true } }
   )
     .then(result => {
       res.json({ deleted: true });
