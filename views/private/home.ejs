@@ -8,16 +8,83 @@
   align-items: center;
 }
 
+.feed{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 250px;
+  width:33%;
+  background-color: grey;
+}
+
+.panel-heading {
+  background: url(http://www.miss-ko.com/photos/02-MissKo_002_602.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 250px;
+}
+
+
+
 </style>
 
 <title><%= title %></title>
 
 <div class="main-container">
 
-  <% if (typeof user != "undefined") { %>
-    <h1>Hello <%= user.firstName %>!</h1>
-  <% } %>
+  <div class="hello">
 
-  <a href="/new">Click here to add a new place</a>
+    <% if (typeof user != "undefined") { %>
+      <h1>Hello <%= user.firstName %>!</h1>
+      <% } %>
 
-</div>
+      <a href="/new">Click here to add a new place</a>
+
+    </div>
+
+    <br>
+    <br>
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <!-- <img src="http://www.miss-ko.com/photos/02-MissKo_002_602.jpg" alt=""> -->
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <!-- <img src="http://www.miss-ko.com/photos/02-MissKo_002_602.jpg" alt=""> -->
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="feed">
+      <div class="box">
+      </div>
+      <div class="box">
+      </div>
+      <div class="box">
+      </div>
+    </div>
+
+
+  </div>

@@ -25,7 +25,7 @@ function startMap() {
       content +=
         "<div class='info-row'>" +
         "<button class='controls delete-map'><i class='fa fa-trash-o' aria-hidden='true'></i></button>" +
-        "<div class='favorite map'>Fave</div>" +
+        "<div class='favorite map'><i class='fa fa-heart-o'></i>Fave</div>" +
         "</div>";
     } else {
       content +=

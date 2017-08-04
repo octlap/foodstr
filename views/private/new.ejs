@@ -79,6 +79,26 @@
       width: 80%;
     }
 
+    .wish-list {
+      background-color: #00bfff;
+      color: white;
+      font-weight: 500;
+      border-radius: 3px;
+      width: 98px;
+      height: 33px;
+      text-align: center;
+    }
+
+    .text-classification{
+      padding-left: 10px;
+    }
+
+    .classification{
+      padding: 10px;
+      border: solid 1x #00bfff;
+      border-radius: 3px;
+    }
+
   </style>
 
 <title><%= title %></title>
@@ -129,11 +149,16 @@
 
     <form id="details-form" action="/new" method="POST">
 
-      <input type="radio" name="status" id="beenThere" value="true">
-      <label for="beenThere">Been there</label><br>
+      <div class="classification">
+            <input type="radio" name="status" id="beenThere" value="true">
+            <label for="beenThere" class="text-classification"> In my favorite places  <span style="margin-left: 5px"><i class="fa fa-heart-o" style="color: #fd7555"></i></span>
+      </label><br>
+      </div>
 
-      <input type="radio" name="status" id="toTry" value="false">
-      <label for="toTry">To try!</label>
+      <div class="classification">
+            <input type="radio" name="status" id="toTry" value="false">
+            <label for="toTry" class="text-classification">In my wish list <span style="margin-left: 5px"><i class="fa fa-star-o" style="color: #00bfff" aria-hidden="true"></i></span></label>
+      </div>
 
       <!-- hidden fields -->
       <input type="hidden" name="name" id="name">
@@ -144,7 +169,6 @@
       <input type="hidden" name="lng" id="lng">
       <!-- hidden fields -->
 
-      <br><br>
       <button type="submit" class="add-place-btn">Add place</button>
     </form>
 
