@@ -84,11 +84,44 @@ h3{
   bottom: 0;
   justify-content: center;
   right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .black-hover:hover {
   background-color: rgba(0,0,0,.5);
 }
 
+.hover-btn {
+  margin: 0 10px;
+  text-align: center;
+  font-size: 25px;
+  height: 40px;
+  width: 40px;
+  border-radius: 3px;
+  border: none;
+  padding-top: 5px;
+}
+
+.hover-btn:focus {
+  outline:0;
+}
+
+.hover-btn.fave {
+  /*background-color: #fd7555;*/
+  color: white;
+  background-color: rgba(253, 117, 85, 0.7);
+}
+
+.hover-btn.wish-list {
+  background-color: #00bfff;
+  color: white;
+  background-color: rgba(0, 191, 255, 0.7);
+}
+
+.hidden {
+  display: none;
+}
 
 </style>
 
@@ -97,21 +130,12 @@ h3{
 <div class="feed">
 
   <div class="hello">
-    <% if (typeof user != "undefined") { %>
-      <h1>Hello <%= user.firstName %>!</h1>
-      <p>Discover the <%= places.length %> places your friends selected</p>
-    <% } %>
+    <h1>Hello <%= user.firstName %>!</h1>
+    <p><i class='fa fa-heart-o' aria-hidden='true'></i>... Here are places that people recently added in Paris ...<i class='fa fa-heart-o' aria-hidden='true'></i></p>
   </div>
 
   <div class="grid">
-    <div class='box panel panel-default'>
-    <div class='panel-heading photo'>
-      <div class='black-hover'></div>" +
-    </div><div class='panel-body'><h3>Comme à la maison
-    </h3><p>12 Rue Bochart de Saron
-    </p>
-    </div>
-    </div>
+  </div>
 
   </div>
 
@@ -123,4 +147,5 @@ h3{
 <script>
   window.user = <%- JSON.stringify(user) -%>
 </script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="/javascripts/home.js"></script>

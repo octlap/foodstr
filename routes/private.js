@@ -138,4 +138,20 @@ router.post("/fave", ensureLoggedIn(), (req, res, next) => {
     });
 });
 
+// HOME PAGE DISOVERY /////////////////////////////////////////////////////////
+router.post("/discover", ensureLoggedIn(), (req, res, next) => {
+  const newPlace = {
+    _placeId: req.body.id,
+    status: req.body.status
+  };
+
+  User.findOneAndUpdate({ _id: req.user._id }, { $push: { places: newPlace } })
+    .then(user => {
+      res.json({ added: true });
+    })
+    .catch(error => {
+      throw error;
+    });
+});
+
 module.exports = router;
