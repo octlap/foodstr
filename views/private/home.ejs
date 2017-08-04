@@ -4,7 +4,6 @@
   margin: 60px 100px 50px 100px;
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
 }
 
 .hello{
@@ -22,8 +21,8 @@
 }
 
 .box{
-  width: 30%;
-  margin: 0 8px;
+  width: 31%;
+  margin: 0 6px;
 }
 
 @media screen and (max-width: 600px) {
@@ -64,6 +63,7 @@
 
 .panel{
   border-color: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.0);
 }
 
 h3{
@@ -76,15 +76,18 @@ h3{
   flex-direction: column;
 }
 
-.black-hover:hover{
+.black-hover {
   left: 0;
   position: absolute;
   top: 0;
-  background-color: rgba(0,0,0,.7);
   bottom: 0;
   justify-content: center;
   right: 0;
 }
+.black-hover:hover {
+  background-color: rgba(0,0,0,.5);
+}
+
 
 </style>
 
@@ -95,11 +98,21 @@ h3{
   <div class="hello">
     <% if (typeof user != "undefined") { %>
       <h1>Hello <%= user.firstName %>!</h1>
-      <p>There are <%= places.length %> places to show</p>
+      <p>Discover the <%= places.length %> places your friends selected</p>
       <% } %>
   </div>
 
-  <div class="grid"></div>
+  <div class="grid">
+    <div class='box panel panel-default'>
+    <div class='panel-heading photo'>
+      <div class='black-hover'></div>" +
+    </div><div class='panel-body'><h3>Comme à la maison
+    </h3><p>12 Rue Bochart de Saron
+    </p>
+    </div>
+    </div>
+
+  </div>
 
 </div>
 
