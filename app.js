@@ -7,6 +7,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+require("dotenv").config();
 
 // DB MIDDLEWARE
 const mongoose = require("mongoose");
@@ -23,7 +24,7 @@ const flash = require("connect-flash");
 const User = require("./models/user");
 
 // CONNECT TO DB
-mongoose.connect("mongodb://localhost/foodstr-development");
+mongoose.connect(process.env.MONGODB_URI);
 
 // DEFINE routes
 const index = require("./routes/index");
@@ -37,7 +38,7 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
-app.set("layout","layouts/main-layout");
+app.set("layout", "layouts/main-layout");
 
 // OTHER MIDDLEWARE
 app.use(favicon(path.join(__dirname, "public", "/images/favicon.ico")));

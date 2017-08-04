@@ -32,3 +32,6 @@ npm-debug.log
 .DS_Store
 
 package-lock.json
+
+#Env file
+.env
