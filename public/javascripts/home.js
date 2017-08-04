@@ -1,8 +1,8 @@
 function loadFeed() {
-  let numPlaces = Math.min(places.length, 30);
+  let numPlaces = Math.min(places.length, 45);
 
   $(".grid").html(""); // Clear feed
-  for (let i = numPlaces - 1; i >= 0; i--) {
+  for (let i = places.length - 1; i >= places.length - 1 - numPlaces; i--) {
     // unless the current user already has the place in their list
     // display last 30 places to have been added
 
