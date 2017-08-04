@@ -11,7 +11,8 @@ router.get("/home", ensureLoggedIn("/login"), async (req, res, next) => {
 
   res.render("private/home", {
     title: "Foosdstr",
-    places
+    places,
+    user: req.user
   });
 });
 
