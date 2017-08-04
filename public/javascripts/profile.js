@@ -25,14 +25,20 @@ function startMap() {
       content +=
         "<div class='info-row'>" +
         "<button class='controls delete-map'><i class='fa fa-trash-o' aria-hidden='true'></i></button>" +
-        "<div class='favorite map'>Fave</div>" +
+        "<span class='id'>" +
+        p.id +
+        "</span>" +
+        "<div class='favorite map'><i class='fa fa-heart-o'></i> Fave</div>" +
         "</div>";
     } else {
       content +=
         "<div class='info-row'>" +
         "<button class='controls fave-map'><i class='fa fa-heart-o' aria-hidden='true'></i></button>" +
         "<button class='controls delete-map'><i class='fa fa-trash-o' aria-hidden='true'></i></button>" +
-        "<div class='wish-list map'>Wish list</div>" +
+        "<span class='id'>" +
+        p.id +
+        "</span>" +
+        "<div class='wish-list map'><i class='fa fa-star-o' aria-hidden='true'></i> Wish list</div>" +
         "</div>";
     }
 
@@ -52,12 +58,37 @@ function startMap() {
       icon
     });
 
+    // Adds listener on map markers
     marker.addListener("click", e => {
       infowindows.forEach(i => {
         i.close();
       });
       infowindow.open(map, marker);
+
+      // Adds listener for delete button
+      $(".controls.delete-map").click(e => {
+        let goAhead = confirm("Are you sure you want to delete this place?");
+
+        if (goAhead) {
+          let delId = $(e.currentTarget).next().html();
+          deletePlace(delId);
+        }
+      });
+
+      // if not a fave, adds listener on fave buttons
+      if (!p.status) {
+        $(".controls.fave-map").click(e => {
+          let goAhead = confirm("Are you sure you want to fave this place?");
+
+          if (goAhead) {
+            let faveId = $(e.currentTarget).next().next().html();
+            favePlace(faveId);
+          }
+        });
+      }
     });
+
+    // Adds listeners on buttons in map infowindows
   });
 }
 
@@ -68,8 +99,12 @@ function loadList() {
   for (let i = places.length - 1; i >= 0; i--) {
     // GENERATE CONTENT DEPENDING ON STATUS
     let content =
-      "<hr>" +
-      "<div class='row-places'>" +
+      "<hr id='hr" +
+      places[i].id +
+      "'>" +
+      "<div class='row-places'  id='row" +
+      places[i].id +
+      "'>" +
       "<img class='place-photo' src=" +
       places[i].photo +
       ">" +
@@ -77,16 +112,18 @@ function loadList() {
 
     if (!places[i].status) {
       content +=
-        "<div class='info-row'>" +
+        "<div class='info-row' id='info-row" +
+        places[i].id +
+        "'>" +
         "<button class='controls fave-list'><i class='fa fa-heart-o' aria-hidden='true'></i></button>" +
         "<button class='controls delete-list'><i class='fa fa-trash-o' aria-hidden='true'></i></button>" +
-        "<div class='wish-list list'>Wish list</div>" +
+        "<div class='wish-list list'><i class='fa fa-star-o' aria-hidden='true'></i> Wish list</div>" +
         "</div>";
     } else {
       content +=
         "<div class='info-row'>" +
         "<button class='controls delete-list'><i class='fa fa-trash-o' aria-hidden='true'></i></button>" +
-        "<div class='favorite list'>Fave</div>" +
+        "<div class='favorite list'><i class='fa fa-heart-o'></i> Fave</div>" +
         "</div>";
     }
 
@@ -115,21 +152,9 @@ $(document).ready(() => {
     let goAhead = confirm("Are you sure you want to delete this place?");
 
     if (goAhead) {
-      // BACK END ROUTINE HERE
+      // Identify place ID and call deletePlace routine
       let id = $(e.currentTarget.parentElement).next().next().next().html();
-      axios
-        .post("/delete", { id })
-        .then(res => {
-          // REMOVE FROM PAGE
-          $(e.currentTarget.parentElement.parentElement.parentElement)
-            .prev()
-            .remove();
-          $(e.currentTarget.parentElement.parentElement.parentElement).remove();
-        })
-        .catch(error => {
-          alert("Something went wrong... :(");
-          console.log(error);
-        });
+      deletePlace(id);
     }
   });
 
@@ -143,21 +168,57 @@ $(document).ready(() => {
     if (goAhead) {
       // BACK END ROUTINE HERE
       let id = $(e.currentTarget.parentElement).next().next().next().html();
-      axios
-        .post("/fave", { id })
-        .then(res => {
-          // CHANGE ON PAGE
-          $(e.currentTarget).next().next().html("Fave");
-          $(e.currentTarget).next().next().attr("class", "favorite list");
-          $(e.currentTarget).remove();
-        })
-        .catch(error => {
-          alert("Something went wrong... :(");
-          console.log(error);
-        });
+      favePlace(id);
     }
   });
 });
+
+////// DELETE FROM SERVER METHOD ///////////////////////////////////////////////
+
+function deletePlace(id) {
+  axios
+    .post("/delete", { id })
+    .then(res => {
+      // REMOVE FROM LIST: <hr> and then row
+      $("#hr" + id).remove();
+      $("#row" + id).remove();
+
+      // Remove from places vector and reinitiate map
+      let index = places.findIndex(p => {
+        return p.id == id;
+      });
+      places.splice(index, 1);
+      startMap();
+    })
+    .catch(error => {
+      alert("Something went wrong... :(");
+      console.log(error);
+    });
+}
+
+/// FAVE ON SERVER METHOD /////////////////////////////////////////////////////
+
+function favePlace(id) {
+  axios
+    .post("/fave", { id })
+    .then(res => {
+      // CHANGE ON PAGE
+      $("#info-row" + id).children().first().remove();
+      $("#info-row" + id).children().last().html("Fave");
+      $("#info-row" + id).children().last().attr("class", "favorite list");
+
+      // Change place status and restart map
+      let index = places.findIndex(p => {
+        return p.id == id;
+      });
+      places[index].status = true;
+      startMap();
+    })
+    .catch(error => {
+      alert("Something went wrong... :(");
+      console.log(error);
+    });
+}
 
 // INITIALIZE PAGE ////////////////////////////////////////////////////////////
 startMap();

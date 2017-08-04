@@ -59,6 +59,7 @@ router.post("/new", ensureLoggedIn("/login"), (req, res, next) => {
       // If place already exists refresh page and suggest adding another one
       if (result == null) {
         res.render("private/new", {
+          title: "Add a new place",
           message:
             "You've already saved this place " +
             req.user.firstName +
