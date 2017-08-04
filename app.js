@@ -41,7 +41,7 @@ app.use(expressLayouts);
 app.set("layout", "layouts/main-layout");
 
 // OTHER MIDDLEWARE
-app.use(favicon(path.join(__dirname, "public", "/images/favicon.ico")));
+app.use(favicon(path.join(__dirname, "public", "/images/favicon-16x16.png")));
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

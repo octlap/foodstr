@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .grid{
@@ -95,7 +96,7 @@ h3{
   <div class="hello">
     <% if (typeof user != "undefined") { %>
       <h1>Hello <%= user.firstName %>!</h1>
-      <p>There are <%= places.length %> places to show</p>
+      <i class="fa fa-heart-o" aria-hidden="true"></i><br>
       <% } %>
   </div>
 
