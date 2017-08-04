@@ -46,12 +46,8 @@ function loadFeed() {
   }
 
   $(".hover-btn").hide(); // Hide buttons for hover
-}
 
-loadFeed();
-
-// LISTENERS//////////////////////////////////////////////////////////////////
-$(document).ready(() => {
+  /// SET LISTENERS
   // Listeners to display controls on hover
   $(".black-hover").mouseenter(e => {
     // console.log("hover");
@@ -76,7 +72,9 @@ $(document).ready(() => {
     // Fill heart and display message
     $(e.currentTarget).html("<i class='fa fa-heart' aria-hidden='true'>");
   });
-});
+}
+
+loadFeed();
 
 ///BACK-END ROUTINE //////////////////////////////////////////////////////////
 function addPlace(id, status, e) {
