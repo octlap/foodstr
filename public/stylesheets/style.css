@@ -66,7 +66,7 @@ blue: #00bfff;
 }
 
 .argument1 {
-  background-color:rgba(253, 117, 85, 0.5);
+  background-color: rgba(253, 117, 85, 0.5);
 }
 .argument1 .image {
   background-image: url(/images/restaurant.jpg);
@@ -252,11 +252,6 @@ label {
 /*
     Homepage
 */
-
-
-
-
-
 
 /*
     Footer

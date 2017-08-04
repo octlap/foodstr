@@ -10,7 +10,7 @@ router.get("/home", ensureLoggedIn("/login"), async (req, res, next) => {
   const places = await Place.find({});
 
   res.render("private/home", {
-    title: "Foosdstr",
+    title: "Foodstr",
     places,
     user: req.user
   });

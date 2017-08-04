@@ -9,7 +9,8 @@ function startMap() {
   // Map initialization
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
-    center: paris
+    center: paris,
+    scrollwheel: false
   });
 
   // var card = document.getElementById('pac-card');
@@ -72,7 +73,7 @@ function startMap() {
     infowindowContent.children["place-icon"].src = place.icon;
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = address;
-    infowindowContent.children["add-place-btn"].textContent = "Add place";
+    infowindowContent.children["add-place-btn"].textContent = "Show details";
     $(infowindowContent).show();
     infowindow.open(map, marker);
   });
