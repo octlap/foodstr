@@ -5,9 +5,13 @@ const Place = require("../models/place");
 const User = require("../models/user");
 
 // HOME PAGE //////////////////////////////////////////////////////////////////
-router.get("/home", ensureLoggedIn("/login"), (req, res, next) => {
+router.get("/home", ensureLoggedIn("/login"), async (req, res, next) => {
+  //places
+  const places = await Place.find({});
+
   res.render("private/home", {
-    title: "Foosdstr"
+    title: "Foosdstr",
+    places
   });
 });
 
